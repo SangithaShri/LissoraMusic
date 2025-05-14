@@ -1,0 +1,122 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 20% 13%;
+    --foreground: 240 10% 98%;
+
+    --card: 250 15% 15%;
+    --card-foreground: 240 10% 98%;
+
+    --popover: 250 15% 15%;
+    --popover-foreground: 240 10% 98%;
+
+    --primary: 265 100% 64%;
+    --primary-foreground: 240 10% 98%;
+
+    --secondary: 250 10% 20%;
+    --secondary-foreground: 240 10% 98%;
+
+    --muted: 250 10% 20%;
+    --muted-foreground: 240 5% 75%;
+
+    --accent: 265 70% 70%;
+    --accent-foreground: 240 10% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 240 10% 98%;
+
+    --border: 250 10% 20%;
+    --input: 250 10% 25%;
+    --ring: 265 70% 70%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 250 20% 13%;
+    --sidebar-foreground: 240 5% 85%;
+    --sidebar-primary: 265 70% 70%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 15% 18%;
+    --sidebar-accent-foreground: 240 5% 85%;
+    --sidebar-border: 250 10% 20%;
+    --sidebar-ring: 265 70% 70%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-lissora-background text-lissora-text;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-lissora-surface rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-lissora-dark;
+  }
+}
+
+@layer components {
+  .lissora-card {
+    @apply bg-gradient-to-br from-lissora-surface to-lissora-background rounded-lg p-4 hover:shadow-md hover:shadow-lissora-dark/20 transition-all duration-300;
+  }
+
+  .lissora-card-hover {
+    @apply relative overflow-hidden cursor-pointer;
+  }
+
+  .lissora-play-button {
+    @apply absolute bottom-4 right-4 bg-lissora-accent text-white rounded-full p-3 
+           opacity-0 translate-y-2 transition-all duration-300 shadow-lg 
+           hover:bg-lissora-accent/90 hover:scale-110;
+  }
+
+  .lissora-card-hover:hover .lissora-play-button {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .lissora-scrollarea {
+    @apply overflow-y-auto pr-2;
+  }
+
+  .lissora-progress-bar {
+    @apply h-1 bg-lissora-surface rounded-full overflow-hidden;
+  }
+
+  .lissora-progress-bar-fill {
+    @apply h-full bg-lissora-accent rounded-full;
+  }
+
+  .lissora-player-controls {
+    @apply flex items-center justify-center space-x-4;
+  }
+
+  .lissora-control-button {
+    @apply p-2 text-lissora-text hover:text-lissora-accent transition-colors;
+  }
+
+  .lissora-main-play-button {
+    @apply p-3 bg-lissora-accent text-white rounded-full hover:scale-110 transition-transform;
+  }
+
+  .lissora-volume-slider {
+    @apply w-24;
+  }
+}
